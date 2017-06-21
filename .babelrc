@@ -1,0 +1,28 @@
+{
+    "env": {
+        "server": {
+            "presets": [
+                [ "env", {
+                    "targets": {
+                        "node": "current"
+                    },
+                    "modules": "commonjs"
+                } ],
+                "stage-0",
+                "react"
+            ]
+        },
+        "client": {
+            "presets": [
+                [ "env", {
+                    "targets": {
+                        "browser": []
+                    },
+                    "modules": false
+                } ],
+                "stage-0",
+                "react"
+            ]
+        }
+    }
+}

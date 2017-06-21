@@ -1,0 +1,13 @@
+{
+    "extends": "rallycoding",
+    "env": {
+        "browser": true
+    },
+    "rules": {
+        "semi": [
+            "warn",
+            "never"
+        ],
+        "react/sort-comp": 0
+    }
+}
