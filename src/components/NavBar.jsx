@@ -12,7 +12,7 @@ class Navbar extends Component {
     const { isAuthenticated } = this.props.auth;
 
     return (
-      <nav className="nav has-shadow">
+      <nav className="nav has-shadow is-success">
         <div className="container">
           <div className="nav-left">
             <span className="nav-item">
@@ -22,38 +22,48 @@ class Navbar extends Component {
               />
             </span>
           </div>
-          {isAuthenticated 
+          {isAuthenticated
             ? <div className="nav-right">
-                <NavLink exact to="/" className="nav-item is-tab is-active">
-                  <i className="fa fa-home" /> &nbsp; Home
+              <NavLink exact to="/" className="nav-item is-tab is-active">
+                <i className="fa fa-home" /> &nbsp; Home
                 </NavLink>
-                <NavLink to="/profile" className="nav-item is-tab">
-                  <i className="fa fa-bolt" /> &nbsp; Profile
+              <NavLink to="/profile" className="nav-item is-tab">
+                <i className="fa fa-bolt" /> &nbsp; Profile
                 </NavLink>
-                <span className="nav-item">
-                  
-                    <a className="button" onClick={this.logout.bind(this)}>
-                      <span className="icon">
-                        <i className="fa fa-lock" />
-                      </span>
-                      <span>Logout</span>
-                    </a>
-                  
-                </span>
-              </div>
+              <span className="nav-item">
+
+                <a className="button" onClick={this.logout.bind(this)}>
+                  <span className="icon">
+                    <i className="fa fa-lock" />
+                  </span>
+                  <span>Logout</span>
+                </a>
+
+              </span>
+            </div>
             : <div className="nav-right">
-                
-                <span className="nav-item">
-                  <NavLink to="/login">
-                    <a className="button">
-                      <span className="icon">
-                        <i className="fa fa-lock" />
-                      </span>
-                      <span>login</span>
-                    </a>
-                  </NavLink>
-                </span>
-              </div>}
+
+              <span className="nav-item">
+                <NavLink to="/login">
+                  <a className="button">
+                    <span className="icon">
+                      <i className="fa fa-lock" />
+                    </span>
+                    <span>login</span>
+                  </a>
+                </NavLink>
+              </span>
+              <span className="nav-item">
+                <NavLink to="/signup">
+                  <a className="button">
+                    <span className="icon">
+                      <i className="fa fa-lock" />
+                    </span>
+                    <span>signup</span>
+                  </a>
+                </NavLink>
+              </span>
+            </div>}
 
         </div>
       </nav>

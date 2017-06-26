@@ -5,6 +5,7 @@ html,body {
   margin: 0;
 }
 
+.name-input,
 .email-input,
 .password-input {
   border-radius: 40px;

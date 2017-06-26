@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { login } from "Redux/actions/authActions";
 import validateInput from './validations/login';
 
-class LoginForm extends Component {
+class SignupForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -73,10 +73,20 @@ class LoginForm extends Component {
               <div className="container">
                 <div className="columns">
                   <div className="column is-8 is-offset-2">
-                    <h1 className="avatar has-text-centered section">
-                      <img src="https://placehold.it/128x128" />
-                    </h1>
+                    
                     <form className="login-form" onSubmit={this.onSubmit}>
+                      <p className="control has-icon has-icon-right">
+                        <input
+                          className="input name-input"
+                          type="text"
+                          name="name"
+                          onChange={this.onChange}
+                          placeholder="name"
+                        />
+                        <span className="icon user">
+                          <i className="fa fa-user" />
+                        </span>
+                      </p>
                       <p className="control has-icon has-icon-right">
                         <input
                           className="input email-input"
@@ -84,6 +94,18 @@ class LoginForm extends Component {
                           name="email"
                           onChange={this.onChange}
                           placeholder="email"
+                        />
+                        <span className="icon user">
+                          <i className="fa fa-user" />
+                        </span>
+                      </p>
+                      <p className="control has-icon has-icon-right">
+                        <input
+                          className="input email-input"
+                          type="text"
+                          name="re-email"
+                          onChange={this.onChange}
+                          placeholder="re-email"
                         />
                         <span className="icon user">
                           <i className="fa fa-user" />
@@ -101,15 +123,27 @@ class LoginForm extends Component {
                           <i className="fa fa-lock" />
                         </span>
                       </p>
+                      <p className="control has-icon has-icon-right">
+                        <input
+                          className="input password-input"
+                          type="password"
+                          name="re-password"
+                          onChange={this.onChange}
+                          placeholder="re-password"
+                        />
+                        <span className="icon user">
+                          <i className="fa fa-lock" />
+                        </span>
+                      </p>
                       <p className="control login">
-                        <button className="button is-success is-outlined is-large is-fullwidth">
-                          Login
+                        <button className="button is-success is-outlined is-large is-fullwidth" >
+                          Signup
                         </button>
                       </p>
                     </form>
                     <div className="section forgot-password">
                       <p className="has-text-centered">
-                        <a href="#">Forgot password</a>
+                        
                         <a href="#">Need help?</a>
                       </p>
                     </div>
@@ -124,4 +158,4 @@ class LoginForm extends Component {
   }
 }
 
-export default connect(null, { login })(LoginForm);
+export default connect(null, { login })(SignupForm);
