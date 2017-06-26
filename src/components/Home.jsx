@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-import NavBar from "Components/NavBar"
 import styles from 'Components/css/timeline.css'
 
 export default class extends Component {
 
   render() {
     return (<div>
-    <NavBar />
     <section className="section main">
     <div className="container">
       <div className="columns">

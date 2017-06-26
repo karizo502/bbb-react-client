@@ -6,7 +6,8 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     resolve: {
         alias: {
-            Components: path.resolve(__dirname, 'src', 'components')
+            Components: path.resolve(__dirname, 'src', 'components'),
+            Redux: path.resolve(__dirname, 'src', 'redux'),
         },
         extensions: [ '.jsx', '.js', '.json' ]
     },
