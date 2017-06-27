@@ -3,15 +3,18 @@ import styles from "Components/css/login.css";
 //import axios from "axios";
 //import Auth from "Components/Auth";
 import { connect } from "react-redux";
-import { login } from "Redux/actions/authActions";
-import validateInput from './validations/login';
+import { userSignupRequest } from "Redux/actions/signupActions";
+import validateInput from './validations/signup';
 
 class SignupForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: "",
       email: "",
+      re_email: "",
       password: "",
+      re_password: "",
       errors: {},
       isLoading: false
     };
@@ -28,9 +31,9 @@ class SignupForm extends Component {
     e.preventDefault();
     if (this.isValid()) {
       this.setState({ errors: {}, isLoading: true });
-      this.props.login(this.state).then(
+      this.props.userSignupRequest(this.state).then(
         (res) => this.props.history.push('/'),
-        (err) => this.setState({ isLoading: false })
+        (err) => this.setState({errors: err.response.data.errors, isLoading: false })
       );
     }
   }
@@ -99,18 +102,7 @@ class SignupForm extends Component {
                           <i className="fa fa-user" />
                         </span>
                       </p>
-                      <p className="control has-icon has-icon-right">
-                        <input
-                          className="input email-input"
-                          type="text"
-                          name="re-email"
-                          onChange={this.onChange}
-                          placeholder="re-email"
-                        />
-                        <span className="icon user">
-                          <i className="fa fa-user" />
-                        </span>
-                      </p>
+                      
                       <p className="control has-icon has-icon-right">
                         <input
                           className="input password-input"
@@ -127,7 +119,7 @@ class SignupForm extends Component {
                         <input
                           className="input password-input"
                           type="password"
-                          name="re-password"
+                          name="re_password"
                           onChange={this.onChange}
                           placeholder="re-password"
                         />
@@ -158,4 +150,4 @@ class SignupForm extends Component {
   }
 }
 
-export default connect(null, { login })(SignupForm);
+export default connect(null, { userSignupRequest })(SignupForm);

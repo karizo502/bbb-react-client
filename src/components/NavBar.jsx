@@ -24,56 +24,56 @@ class Navbar extends Component {
           </div>
           {isAuthenticated
             ? <div className="nav-right">
-              <NavLink exact to="/" className="nav-item is-tab is-active">
-                <i className="fa fa-home" /> &nbsp; Home
+                <NavLink exact to="/" className="nav-item is-tab">
+                  <i className="fa fa-home" /> &nbsp; Home
                 </NavLink>
-              <NavLink to="/profile" className="nav-item is-tab">
-                <i className="fa fa-bolt" /> &nbsp; Profile
+                <NavLink to="/profile" className="nav-item is-tab">
+                  <i className="fa fa-user" /> &nbsp; Profile
                 </NavLink>
-              <span className="nav-item">
+                <span className="nav-item">
 
-                <a className="button" onClick={this.logout.bind(this)}>
-                  <span className="icon">
-                    <i className="fa fa-lock" />
-                  </span>
-                  <span>Logout</span>
-                </a>
+                  <a className="button" onClick={this.logout.bind(this)}>
+                    <span className="icon">
+                      <i className="fa fa-lock" />
+                    </span>
+                    <span>Logout</span>
+                  </a>
 
-              </span>
-            </div>
+                </span>
+              </div>
             : <div className="nav-right">
 
-              <span className="nav-item">
-                <NavLink to="/login">
-                  <a className="button">
+                <span className="nav-item">
+                  <NavLink to="/login" className="button">
+
                     <span className="icon">
                       <i className="fa fa-lock" />
                     </span>
                     <span>login</span>
-                  </a>
-                </NavLink>
-              </span>
-              <span className="nav-item">
-                <NavLink to="/signup">
-                  <a className="button">
+
+                  </NavLink>
+                </span>
+                <span className="nav-item">
+                  <NavLink to="/signup" className="button">
+
                     <span className="icon">
                       <i className="fa fa-lock" />
                     </span>
                     <span>signup</span>
-                  </a>
-                </NavLink>
-              </span>
-            </div>}
+
+                  </NavLink>
+                </span>
+              </div>}
 
         </div>
       </nav>
-    )
+    );
   }
 }
 Navbar.propTypes = {
   auth: React.PropTypes.object.isRequired,
   logout: React.PropTypes.func.isRequired
-}
+};
 
 function mapStateToProps(state) {
   return {
