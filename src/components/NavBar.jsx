@@ -10,7 +10,8 @@ class Navbar extends Component {
   }
   render() {
     const { isAuthenticated } = this.props.auth;
-
+    const { user } = this.props.auth;
+    console.log(user.email)
     return (
       <nav className="nav has-shadow is-success">
         <div className="container">

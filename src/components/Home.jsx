@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import styles from 'Components/css/timeline.css'
+import { connect } from "react-redux";
 
-export default class extends Component {
+class Home extends Component {
 
   render() {
     return (<div>
@@ -414,3 +415,4 @@ export default class extends Component {
 
   
 }
+export default connect(null, { })(Home);
