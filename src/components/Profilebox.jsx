@@ -18,7 +18,7 @@ class Profilebox extends Component {
                   <a href="#">{user.name}</a>
                 </div>
                 <span>
-                  <a href="#">@<span>jsmith</span></a>
+                  <a href="#">@<span>{user.name}</span></a>
                 </span>
               </div>
 
