@@ -2,10 +2,12 @@ import React, { Component } from "react";
 
 export default class extends Component {
   render() {
-    return (<article className="media">
+    return (<div className="box">
+   
+             <article className="media">
               <div className="media-left">
                 <figure className="image is-64x64">
-                  <img src="http://placehold.it/128x128" alt="Image" />
+                  <img src={this.props.event.image_path} alt="Image" />
                 </figure>
               </div>
               <div className="media-content">
@@ -14,7 +16,15 @@ export default class extends Component {
                     <strong>{this.props.event.event_name}</strong> <small>@{this.props.event.creator}</small> 
                     <br />
                     <small >{this.props.event.postdate}</small>
-                    <br />
+                  </p>
+                </div>
+              </div>
+            </article>
+            <article className="media">
+              <div className="media-content">
+                <div className="content">
+                <img src={this.props.event.image_path} alt="Image" />
+                  <p>  
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
                   </p>
                 </div>
@@ -32,6 +42,7 @@ export default class extends Component {
                   </div>
                 </nav>
               </div>
-            </article>)
+            </article>
+            </div>)
   }
 }

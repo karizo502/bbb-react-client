@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-export default class extends Component {
+class Profilebox extends Component {
   render() {
+    const { user } = this.props.auth;
+    console.log(user)
     return (<div className="card is-fullwidth">
             <header className="card-header">
             </header>
@@ -12,7 +15,7 @@ export default class extends Component {
 
               <div className="card-user">
                 <div className="card-user-name">
-                  <a href="#">John Snow</a>
+                  <a href="#">{user.name}</a>
                 </div>
                 <span>
                   <a href="#">@<span>jsmith</span></a>
@@ -45,3 +48,11 @@ export default class extends Component {
           </div>)
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  };
+}
+
+export default connect(mapStateToProps, { })(Profilebox);

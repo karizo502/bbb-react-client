@@ -13,7 +13,7 @@ export function geteventlist() {
   return dispatch => {
     return axios.get('http://localhost:3000/api/geteventlist').then(res => {
       dispatch(setEventList(res.data));
-      console.log(res.data);
+      //console.log(res.data);
     });
 
   }

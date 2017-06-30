@@ -11,14 +11,14 @@ class EventList extends Component {
   
   render() {
     const { event_list } = this.props.event;
-    console.log(event_list)
+    //console.log(event_list)
     return (<div>
          {/*<div className="notification is-danger">
             <button className="delete" ></button>
             This template is not yet finished, it may change. Please check the readme for more information.
           </div>*/}
           
-          <div className="box">
+          <div>
           
              {event_list.map((ev,index)=>{
                 return <EventItem p key={index} event={ev}></EventItem>
