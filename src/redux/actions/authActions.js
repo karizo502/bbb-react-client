@@ -20,14 +20,14 @@ export function logout() {
 
 export function login(data) {
   return dispatch => {
-    console.log(data)
+    //console.log(data)
     return axios.post('http://localhost:3000/api/authenticate', data).then(res => {
       const token = res.data.token;
-      console.log(token)
+      //console.log(token)
       localStorage.setItem('jwtToken', token);
       setAuthorizationToken(token);
       dispatch(setCurrentUser(jwtDecode(token)));
-      console.log(jwtDecode(token));
+      //console.log(jwtDecode(token));
     });
   }
 }
