@@ -22,9 +22,15 @@ class Navbar extends Component {
                 alt="Bulma logo"
               />
             </span>
+            <span className="nav-item">
+            <p claclassNames="control has-addons searchbox">
+              <input className="input" type="text" placeholder="Search Wingkan" />
+                <a class="button is-dark"> &nbsp; <i className="fa fa-search"></i> &nbsp;</a>
+             </p>
+              </span>
           </div>
-          {isAuthenticated
-            ? <div className="nav-right">
+            {isAuthenticated
+              ? <div className="nav-right">
                 <NavLink exact to="/" className="nav-item is-tab">
                   <i className="fa fa-home" /> &nbsp; Home
                 </NavLink>
@@ -42,7 +48,7 @@ class Navbar extends Component {
 
                 </span>
               </div>
-            : <div className="nav-right">
+              : <div className="nav-right">
 
                 <span className="nav-item">
                   <NavLink to="/login" className="button">
@@ -66,20 +72,20 @@ class Navbar extends Component {
                 </span>
               </div>}
 
-        </div>
+          </div>
       </nav>
-    );
+        );
   }
 }
 Navbar.propTypes = {
-  auth: React.PropTypes.object.isRequired,
+          auth: React.PropTypes.object.isRequired,
   logout: React.PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    auth: state.auth
+          auth: state.auth
   };
 }
 
-export default connect(mapStateToProps, { logout })(Navbar);
+export default connect(mapStateToProps, {logout})(Navbar);

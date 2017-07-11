@@ -24,9 +24,7 @@ export default class extends Component {
               <div className="media-content">
                 <div className="content">
                 <img src={this.props.event.image_path} alt="Image" />
-                  <p>  
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                  </p>
+                  <p>  {this.props.event.detail}</p>
                 </div>
                 <nav className="level">
                   <div className="level-left">

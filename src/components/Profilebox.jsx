@@ -10,7 +10,7 @@ class Profilebox extends Component {
             </header>
             <div className="card-content">
               <a className="card-avatar">
-                <img src="https://www.heartlandhealthcenters.org/wp-content/themes/twentytwelve-child/images/user_default.png" className="card-avatar-img" />
+                <img src={user.image_path} className="card-avatar-img" />
               </a>
 
               <div className="card-user">
