@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styles from 'Components/css/timeline.css'
 import { connect } from "react-redux";
-import Profilebox from 'Components/Profilebox'
+import ProfileBox from 'Components/ProfileBox'
 import EventList from 'Components/EventList'
 
 class Home extends Component {
@@ -12,7 +12,7 @@ class Home extends Component {
     <div className="container">
       <div className="columns">
         <div className="column is-3">
-          <Profilebox />
+          <ProfileBox />
           <div className="spacer"></div>
           <div className="box trending">
             <p className="trend-title"><span className="title is-5">Trends</span> · <a href="#">change</a></p>

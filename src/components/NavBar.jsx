@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
+import SearchBox from "Components/SearchBox";
 import { logout } from "Redux/actions/authActions";
 
 class Navbar extends Component {
@@ -23,10 +24,7 @@ class Navbar extends Component {
               />
             </span>
             <span className="nav-item">
-            <p claclassNames="control has-addons searchbox">
-              <input className="input" type="text" placeholder="Search Wingkan" />
-                <a class="button is-dark"> &nbsp; <i className="fa fa-search"></i> &nbsp;</a>
-             </p>
+              <SearchBox />
               </span>
           </div>
             {isAuthenticated

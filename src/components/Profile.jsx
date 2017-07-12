@@ -1,20 +1,23 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import styles from "Components/css/profile.css";
 
-export default class extends Component {
+class Profile extends Component {
+  
   render() {
+    const { user } = this.props.auth;
     return (<section className="section main">
       <div className="container profile">
         <div className="section profile-heading">
           <div className="columns">
             <div className="column is-2">
               <div className="image is-128x128 avatar">
-                <img src="https://placehold.it/256x256" />
+                <img src={user.image_path}  />
               </div>
             </div>
             <div className="column is-4 name">
               <p>
-                <span className="title is-bold">John Smith</span>
+                <span className="title is-bold">{user.name}</span>
                 <span className="button is-primary is-outlined follow">
                   Follow
                 </span>
@@ -72,3 +75,11 @@ export default class extends Component {
     </section>);
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  };
+}
+
+export default connect(mapStateToProps, { })(Profile);
