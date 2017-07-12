@@ -24,7 +24,10 @@ class Navbar extends Component {
               />
             </span>
             <span className="nav-item">
-              <SearchBox />
+              {isAuthenticated
+              ?<SearchBox />
+              :<div />
+              }
               </span>
           </div>
             {isAuthenticated

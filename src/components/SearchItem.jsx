@@ -3,7 +3,7 @@ import React, { Component } from "react";
 const imgStyle = {
     'width' : '48px',
     'height' : '48px',
-    'border-radius': '100px',
+    'borderRadius': '100px',
     'padding': '2px',
     'border': '1px solid #dbdbdb'
 }
