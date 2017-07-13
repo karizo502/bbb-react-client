@@ -22,7 +22,8 @@ export default class extends Component {
           />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-          <Route path="/profile" component={Profile} />
+          <Route exact path="/profile" component={Profile} />
+          <Route path="/profile/:id" component={Profile} />
           <Route exact path="/customers" component={CustomerList} />
           <Route path="/customers/:id" component={CustomerProfile} />
           <Route path="/logout" />

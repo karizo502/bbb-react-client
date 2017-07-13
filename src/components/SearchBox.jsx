@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import SearchItem from "Components/SearchItem";
 import { searchUser } from "Redux/actions/userActions";
 import Popover from 'react-simple-popover';
+import { NavLink } from "react-router-dom";
 
 const PopoverStyle = {
   width: ''
@@ -23,10 +24,12 @@ class SearchBox extends Component {
   }
  
   handleClick(e) {
-    //this.props.searchUser(this.state.value);
+    if(this.refs.target.value == "" || this.props.user.user_list.length == 0){
+      this.setState({open: false});
+      return ;
+    }
     if(!this.state.open){
-      this.setState({open: !this.state.open});
-      //console.log("after :" + this.state.open)
+      this.setState({open: true});
     }
   }
  
@@ -48,6 +51,12 @@ class SearchBox extends Component {
     this.setState({open: false});
     //console.log(this.state.open)
   }
+
+  clearInput(e) {
+    
+    this.setState({value: ''});
+    //console.log(this.state.open)
+  }
   render() {
      const { user_list } = this.props.user;
     //console.log(event_list)
@@ -55,7 +64,7 @@ class SearchBox extends Component {
       <div>
    
         <div className="control has-addons searchbox">
-          <input className="input" ref="target" type="text" placeholder="Search Wingkan" onChange={this.handleChange.bind(this)} onClick={this.handleChange.bind(this)} />
+          <input className="input" ref="target" type="text" placeholder="Search Wingkan" onChange={this.handleChange.bind(this)} onClick={this.handleClick.bind(this)} />
           <a className="button is-dark" onClick={this.handleClick.bind(this)}>
             {" "}&nbsp; <i className="fa fa-search" /> &nbsp;
           </a>
@@ -69,7 +78,7 @@ class SearchBox extends Component {
           onHide={this.handleClose.bind(this)} >
           <ul className="menu-list">
             {user_list.map((usr,index)=>{
-                return <li key={index}><a><SearchItem  user={usr}></SearchItem></a></li>
+                return <li key={index}><NavLink to={`/profile/${usr._id}` } onClick={this.clearInput.bind(this)} ><SearchItem  user={usr}></SearchItem></NavLink></li>
             })}
           </ul>
         </Popover>

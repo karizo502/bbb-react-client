@@ -1,23 +1,29 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import styles from "Components/css/profile.css";
+import { viewProfile } from "Redux/actions/userActions";
 
 class Profile extends Component {
+  componentWillMount(){
+    this.props.viewProfile(this.props.match.params.id);
+  }
   
   render() {
     const { user } = this.props.auth;
+    const { profile_target } = this.props.user;
+    console.log(profile_target)
     return (<section className="section main">
       <div className="container profile">
         <div className="section profile-heading">
           <div className="columns">
             <div className="column is-2">
               <div className="image is-128x128 avatar">
-                <img src={user.image_path}  />
+                <img src={(this.props.match.params.id==null)?user.image_path:profile_target.image_path}  />
               </div>
             </div>
             <div className="column is-4 name">
               <p>
-                <span className="title is-bold">{user.name}</span>
+                <span className="title is-bold">{(this.props.match.params.id==null)?user.name:profile_target.name}</span>
                 <span className="button is-primary is-outlined follow">
                   Follow
                 </span>
@@ -78,8 +84,9 @@ class Profile extends Component {
 
 function mapStateToProps(state) {
   return {
-    auth: state.auth
+    auth: state.auth,
+    user: state.user
   };
 }
 
-export default connect(mapStateToProps, { })(Profile);
+export default connect(mapStateToProps, { viewProfile })(Profile);
