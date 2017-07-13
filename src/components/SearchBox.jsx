@@ -15,20 +15,34 @@ class SearchBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
+      value: ''
+
     };
+    
   }
  
   handleClick(e) {
-    console.log("before :" + this.state.open)
+    //this.props.searchUser(this.state.value);
     if(!this.state.open){
       this.setState({open: !this.state.open});
-      console.log("after :" + this.state.open)
+      //console.log("after :" + this.state.open)
     }
-    //this.setState({open: !this.state.open});
-    //console.log(this.state.open)
   }
  
+  handleChange(e) {
+    this.setState({value: e.target.value});
+    //console.log(this.props.user.user_list.length)
+    this.props.searchUser(this.refs.target.value);
+    if(this.refs.target.value == "" || this.props.user.user_list.length == 0){
+      this.setState({open: false});
+      return ;
+    }
+    if(!this.state.open){
+      this.setState({open: true});
+    }
+  }
+
   handleClose(e) {
     
     this.setState({open: false});
@@ -41,7 +55,7 @@ class SearchBox extends Component {
       <div>
    
         <div className="control has-addons searchbox">
-          <input className="input" ref="target" type="text" placeholder="Search Wingkan" onClick={this.handleClick.bind(this)} />
+          <input className="input" ref="target" type="text" placeholder="Search Wingkan" onChange={this.handleChange.bind(this)} onClick={this.handleChange.bind(this)} />
           <a className="button is-dark" onClick={this.handleClick.bind(this)}>
             {" "}&nbsp; <i className="fa fa-search" /> &nbsp;
           </a>
@@ -49,12 +63,15 @@ class SearchBox extends Component {
         <Popover
           placement='bottom'
           style={PopoverStyle}
+          contrainer={this}
           target={this.refs.target}
           show={this.state.open}
           onHide={this.handleClose.bind(this)} >
-          {user_list.map((usr,index)=>{
-                return <SearchItem p key={index} user={usr}></SearchItem>
+          <ul className="menu-list">
+            {user_list.map((usr,index)=>{
+                return <li key={index}><a><SearchItem  user={usr}></SearchItem></a></li>
             })}
+          </ul>
         </Popover>
         
       </div>

@@ -11,7 +11,7 @@ const imgStyle = {
 export default class extends Component {
   render() {
     return (
-      <div className="">
+      <div >
       <br />
         <article className="media">
           <div className="media-left">
@@ -23,7 +23,7 @@ export default class extends Component {
             <div className="content">
               <p>
                 <strong>{this.props.user.name}</strong>{" "}
-                <small>@{this.props.user.email}</small>
+                <small>:{this.props.user.email}</small>
               </p>
             </div>
           </div>

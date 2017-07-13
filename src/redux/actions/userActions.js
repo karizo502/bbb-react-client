@@ -9,9 +9,10 @@ export function settUserList(users) {
   };
 }
 
-export function searchUser() {
+export function searchUser(filterName) {
+  if(filterName == ""){filterName="!";}
   return dispatch => {
-    return axios.get('http://localhost:3000/api/searchuser').then(res => {
+    return axios.get(`http://localhost:3000/api/users?name=${filterName}`).then(res => {
       dispatch(settUserList(res.data));
       //console.log(res.data);
     });
