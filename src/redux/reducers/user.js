@@ -1,23 +1,27 @@
-import { SEARCH_USER,VIEW_PROFILE } from '../actions/types';
-import isEmpty from 'lodash/isEmpty';
+import isEmpty from 'lodash/isEmpty'
+
+import { SEARCH_USER, VIEW_PROFILE } from '../actions/types'
 
 const initialState = {
   user_list: [],
-  profile_target:{}
-};
+  profile_target: {}
+}
 
 export default (state = initialState, action = {}) => {
-  switch(action.type) {
+  switch (action.type) {
     case SEARCH_USER:
       return {
-        user_list: action.users,
-        profile_target:{}
-      };
+        ...state,
+        user_list: action.users
+        //profile_target: {}
+      }
     case VIEW_PROFILE:
       return {
-        user_list: [],
+        ...state,
+        //user_list: [],
         profile_target: action.user
-      };
-    default: return state;
+      }
+    default:
+      return state
   }
 }
